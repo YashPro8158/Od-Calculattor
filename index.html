@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Od interest calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <a href="www.loanconsultant.co.in" id="linklg">By LoanConsultant</a>
+        <h1>Od interest Calculator</h1>
+        <label for="amount">Loan amount</label>
+        <input type="number" name="amount" id="amount"><br>
+        <label for="days">Day of used</label>
+        <input type="number" name="days" id="days" min="1"><br>
+        <label for="rate">Interest rate per day (%)</label>
+        <input type="number" name="rate" id="rate" step=".01" min="5"><br>
+        <button onclick="calculate()">Calculate Interest</button><br>
+
+        <h2 id="perday">Per Day Interest: <span id="valueperday"></span></h2>
+        <h2 id="totalinterest">Total Interest: <span id="valuetotalinterest"></span></h2>
+
+    </div>
+
+    <script>
+        let amount = document.getElementById("amount");
+        let interest = document.getElementById("rate");
+        let days = document.getElementById("days");
+        let totalinterest = document.getElementById("valuetotalinterest");
+        let perday = document.getElementById("valueperday");
+        let perdayinterest;
+        function calculate() {
+            perdayinterest = Math.floor((parseInt(amount.value) * (interest.value) / 100) / 365), 2;
+            //console.log(perdayinterest*days.value);
+            perday.innerHTML = perdayinterest;
+            totalinterest.innerHTML = perdayinterest * days.value;
+        }
+
+    </script>
+</body>
+
+</html>
